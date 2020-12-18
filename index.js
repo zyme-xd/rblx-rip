@@ -9,7 +9,7 @@ const fs = require('fs')
 init()
 
 async function init() {
-    let asset = 2774837067
+    let asset = readline.questionAsync('Input an asset ID.')
     let regex = /\D/g
     let newId
     if (isNaN(asset)) {
@@ -27,6 +27,12 @@ async function init() {
                 .then(res => res.json())
                 .then(async function (json) {
                     asset = json.data[0].imageUrl
+                download() 
                 })
+               async function download(){
+                    let response2 = await fetch(`${asset}`)
+                    let writestream = fs.createWriteStream('./folder/' + newId + '.png')
+                    response2.body.pipe(writestream)
+                }
         })
 }
