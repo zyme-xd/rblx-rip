@@ -3,13 +3,14 @@ const readline = require('readline-promise').default.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-const fs = require('fs')
+const fs = require('fs');
+const { rawListeners } = require('process');
 
 
 init()
 
 async function init() {
-    let asset = readline.questionAsync('Input an asset ID.')
+    let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     let regex = /\D/g
     let newId
     if (isNaN(asset)) {
@@ -34,5 +35,6 @@ async function init() {
                     let writestream = fs.createWriteStream('./folder/' + newId + '.png')
                     response2.body.pipe(writestream)
                 }
+                readline.close()
         })
 }
