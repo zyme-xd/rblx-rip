@@ -89,21 +89,21 @@ async function main() {
     async function rip() {
         if (type == '.rbxm' || type == '.mp3'|| type == '.webm' || type == ".rbxl") {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`,{method:'GET',headers:{'User-Agent':'Roblox/WinInet'}})
-            response.body.pipe(fs.createWriteStream('./assets/' + asset + `${type}`))
+            response.body.pipe(fs.createWriteStream(`./assets/${asset}${type}`))
             readline.close()
         } else if(type == '.rbxmx'){
             resp = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`) .then(res => res.text())
             newId = resp.split(";")
             for(i = 0; newId.length > i; i++){
                 res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId[i]}`)
-            res.body.pipe(fs.createWriteStream('./assets/' + newId[i] + `${type}`))
+                response.body.pipe(fs.createWriteStream(`./assets/${newId[i]}${type}`))
             }
         }
         else {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`) .then(res => res.text())
             newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
             res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
-            res.body.pipe(fs.createWriteStream('./assets/' + newId + `${type}`))
+            response.body.pipe(fs.createWriteStream(`./assets/${newId}${type}`))
             readline.close()
         }
     }
