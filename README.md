@@ -7,7 +7,7 @@ An open-source roblox ripping tool.
 2. If you have it installed, continue.
 3. Enter cmd and enter this. `cd <directory-here>`
 4. Type in `npm install`
-5. After this, type in `node ./index.js` and begin ripping!
+5. After that, type in `node ./index.js` and begin ripping!
 
 # Asset Types Supported
 | Asset Name  | Description of asset, |
