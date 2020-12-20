@@ -5,6 +5,16 @@ const readline = require('readline-promise').default.createInterface({
 });
 const fs = require('fs');
 
+console.log(`
+      _     _                     _       
+     | |   | |                   (_)      
+_ __ | |__ | |_  __  ______   _ __ _ _ __  
+| '__| '_ /| / // / |______| | '__| | '_ /
+| |  | |_) | |>  <           | |  | | |_)|
+|_|  |_.__/|_/_//_/          |_|  |_| .__/
+                                    | |    
+                                    |_| `)
+console.log('Thanks for installing rbx-rip! Please keep in mind you cannot download off-sale assets.')                                    
 main()
 async function main() {
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
