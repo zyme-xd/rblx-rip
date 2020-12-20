@@ -5,22 +5,20 @@ const readline = require('readline-promise').default.createInterface({
 });
 const fs = require('fs');
 
-init()
-
-async function init() {
+main()
+async function main() {
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     let regex = /\D/g
     if (isNaN(asset)) {
         console.log("You can't input a string")
-        init()
-        return
+        return main()
     }
     console.log(`Ok, getting the template for the asset id ${asset}`)
     let text = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`)
-                .then(res => res.text())
+        .then(res => res.text())
     let newId = text.split("<url>").join().split("</url>").join().split(",")[1].replace(regex, '')
-    let res =  await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
+    let res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
     let writestream = fs.createWriteStream('./folder/' + newId + '.png')
     res.body.pipe(writestream)
-     readline.close()
+    readline.close()
 }
