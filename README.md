@@ -10,7 +10,7 @@ An open-source roblox ripping tool.
 5. After that, type in `node ./index.js` and begin ripping!
 
 # Asset Types Supported
-| Asset Name  | Description of asset, |
+| Asset Name  | Description of asset |
 | ------------ | ------------ |
 |'audio' | Audios in .mp3 format |
 | 'shirt'  |Shirt templates in .png format   |
