@@ -13,9 +13,9 @@ async function main() {
         return main()
     }
     console.log(`Ok, getting the template for the asset id ${asset}`)
-    let text = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`)
+     response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`)
         .then(res => res.text())
-    newId = text.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
+    newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
     res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
     res.body.pipe(fs.createWriteStream('./folder/' + newId + '.png'))
     readline.close()
