@@ -1,0 +1,30 @@
+# rblx-rip
+An open-source roblox ripping tool.
+#### Please note, you can only rip assets that are on sale/are uncopylocked.
+**Bundle ID's are also NOT supported. If you are downloading a bundle, find the normal ID for the bundle.**
+# Installation
+1. First, make sure you have node.js installed.
+2. If you have it installed, continue.
+3. Enter cmd and enter this. `cd <directory-here>`
+4. Type in `npm install`
+5. After this, type in `node ./index.js` and begin ripping!
+
+# Asset Types Supported
+| 'audio'  | Audios in .mp3 format  |
+| ------------ | ------------ |
+| 'shirt'  |Shirt templates in .png format   |
+| 'pants'  |Pants templates in .png format   |
+|'tshirt'   | T-shirt images in .png format  |
+| 'face'  | Face images in .png format  |
+|  'decal' | Decal images in .png format  |
+| 'hat'  | Hat models in .rbxm format  |
+|  'mesh' | Meshes in .rbxm format |
+| 'plugin'  | Plugins in .rbxm format  |
+| 'emote'  | Emotes in .rbxm format  |
+|  'gear' | Gears in .rbxm format  |
+| 'body-part'  | Body parts in .rbxm format  |
+|  'animation'  | Animations in .rbxm format  |
+| 'package'  |  Packages/AnimationPacks in .rbxmx format|
+| 'place'  | Places in .rbxl format.  |
+|  'video' | Videos in .webm format  |
+
