@@ -35,6 +35,12 @@ async function main() {
         case 'pants':
             type = ".png"
             rip(); break
+        case 'tshirt':
+            type = ".png"
+            rip(); break    
+        case 'face':
+            type = ".png"
+            rip(); break    
         case 'decal':
             type = ".png" 
             rip(); break   
@@ -52,10 +58,25 @@ async function main() {
             rip(); break 
         case 'plugin':
             type = ".rbxm"
-            rip(); break   
+            rip(); break  
+        case 'emote':
+            type = ".rbxm"
+            rip(); break
+        case 'gear':
+            type = ".rbxm" 
+            rip(); break     
+        case 'body-part':
+            type = ".rbxm"
+            rip(); break    
+        case 'animation':
+            type = ".rbxm"
+            rip(); break 
+        case 'package':
+            type = ".rbxmx"
+            rip(); break             
         case 'place':
             type = ".rbxl"
-            rip(); break          
+            rip(); break
         default:
             console.log("Sorry, you provided an invalid type.")
             return main();
@@ -65,7 +86,15 @@ async function main() {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`,{method:'GET',headers:{'User-Agent':'Roblox/WinInet'}})
             response.body.pipe(fs.createWriteStream('./folder/' + asset + `${type}`))
             readline.close()
-        } else {
+        } else if(type == '.rbxmx'){
+            resp = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`) .then(res => res.text())
+            newId = resp.split(";")
+            for(i = 0; newId.length > i; i++){
+                res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId[i]}`)
+            res.body.pipe(fs.createWriteStream('./folder/' + newId[i] + `${type}`))
+            }
+        }
+        else {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`) .then(res => res.text())
             newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
             res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
