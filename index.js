@@ -15,7 +15,7 @@ _ __ | |__ | |_  __  ______   _ __ _ _ __
                                     | |    
                                     |_| `
 )                          
-console.log('Thanks for installing rbx-rip! Please keep in mind you cannot download off-sale assets.')                                    
+console.log('Thanks for installing rblx-rip! Please keep in mind you cannot download off-sale assets.')                                    
 main()
 async function main() {
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
