@@ -35,6 +35,9 @@ async function main() {
         case 'pants':
             type = ".png"
             rip(); break
+        case 'decal':
+            type = ".png" 
+            rip(); break   
         case 'hat':
             type = ".rbxm"
             rip(); break
@@ -44,12 +47,21 @@ async function main() {
         case 'model':
             type = ".rbxm"
             rip(); break
+        case 'video':
+            type = ".webm"
+            rip(); break 
+        case 'plugin':
+            type = ".rbxm"
+            rip(); break   
+        case 'place':
+            type = ".rbxl"
+            rip(); break          
         default:
             console.log("Sorry, you provided an invalid type.")
             return main();
     }
     async function rip() {
-        if (type == '.rbxm' || type == '.mp3') {
+        if (type == '.rbxm' || type == '.mp3'|| type == '.webm' || type == ".rbxl") {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`,{method:'GET',headers:{'User-Agent':'Roblox/WinInet'}})
             response.body.pipe(fs.createWriteStream('./folder/' + asset + `${type}`))
             readline.close()
