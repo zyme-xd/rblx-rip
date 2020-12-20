@@ -4,37 +4,24 @@ const readline = require('readline-promise').default.createInterface({
     output: process.stdout
 });
 const fs = require('fs');
-const { rawListeners } = require('process');
 
-
-init()
-
-async function init() {
+main()
+async function main() {
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     let regex = /\D/g
-    let newId
     if (isNaN(asset)) {
         console.log("You can't input a string")
-        init()
-        return
+        return main()
     }
     console.log(`Ok, getting the template for the asset id ${asset}`)
-    await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`)
+    let text = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`)
         .then(res => res.text())
-        .then(async function (res) {
-            asset = res.split("<url>").join().split("</url>").join().split(",")
-            newId = asset[1].replace(regex, '')
-            await fetch(`https://thumbnails.roblox.com/v1/assets?assetIds=${newId}&size=700x700&format=Png&isCircular=false`)
-                .then(res => res.json())
-                .then(async function (json) {
-                    asset = json.data[0].imageUrl
-                download() 
-                })
-               async function download(){
-                    let response2 = await fetch(`${asset}`)
-                    let writestream = fs.createWriteStream('./folder/' + newId + '.png')
-                    response2.body.pipe(writestream)
-                }
-                readline.close()
-        })
+    let newId = text.split("<url>").join().split("</url>").join().split(",")[1].replace(regex, '')
+    await fetch(`https://thumbnails.roblox.com/v1/assets?assetIds=${newId}&size=700x700&format=Png&isCircular=false`)
+        .then(res => res.json())
+        .then(res => imageUrl = res.data[0].imageUrl)
+    let res = await fetch(imageUrl);
+    let writestream = fs.createWriteStream('./folder/' + newId + '.png')
+    res.body.pipe(writestream)
+    readline.close()
 }
