@@ -17,29 +17,23 @@ async function main() {
     switch (type.toLowerCase()) {
         case 'audio':
             type = ".mp3"
-            rip()
-            break;
+            rip(); break
         case 'shirt':
             type = ".png"
-            rip()
-            break;
+            rip(); break
         case 'pants':
             type = ".png"
-            rip()
-            break;
+            rip(); break
         case 'hat':
             type = ".rbxm"
-            rip()
-            break;
+            rip(); break
         default:
             console.log("Sorry, you provided an invalid type.")
             return main();
     }
     async function rip() {
         if (type == '.rbxm' || '.mp3') {
-            let headers = ({
-                "User-Agent": "Roblox/WinInet"
-            });
+            let headers = ({ "User-Agent": "Roblox/WinInet"});
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`, {
                 method: 'GET',
                 headers: headers
