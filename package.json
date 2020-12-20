@@ -1,0 +1,25 @@
+{
+  "name": "rblx-shirtrip",
+  "version": "1.0.0",
+  "description": "roblox asset ripper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyme-xd/rblx-shirtrip.git"
+  },
+  "keywords": [
+    "roblox",
+    "asset",
+    "ripping",
+    "nodefetch"
+  ],
+  "author": "zyrn (https://zyrn.wtf)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zyme-xd/rblx-shirtrip/issues"
+  },
+  "homepage": "https://github.com/zyme-xd/rblx-shirtrip#readme"
+}
