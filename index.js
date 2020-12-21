@@ -1,10 +1,10 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch')
 const readline = require('readline-promise').default.createInterface({
     input: process.stdin,
     output: process.stdout
-});
+})
 let obj = require('./types.json')
-const fs = require('fs');
+const fs = require('fs')
 
 console.log(`
       _     _                     _       
@@ -26,7 +26,7 @@ async function main() {
         console.log("You can't input a string")
         return main()
     }
-    let type = await readline.questionAsync('Enter the asset type:  ')
+    let type =  await readline.questionAsync('Enter the asset type:  ')
     console.log(`Ok, ripping the asset id ${asset}`)
     if (obj[type.toLowerCase()]) {
         type = obj[type.toLowerCase()]
@@ -47,7 +47,8 @@ async function main() {
                 res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId[i]}`)
                 response.body.pipe(fs.createWriteStream(`./assets/${newId[i]}${type}`))
             }
-        } else {
+        }
+         else {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`).then(res => res.text())
             newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
             res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
@@ -55,4 +56,5 @@ async function main() {
             readline.close()
         }
     }
+
 }
