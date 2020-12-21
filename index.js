@@ -20,9 +20,7 @@ main()
 async function main() {
     try {
         fs.mkdirSync('./assets/', {})
-    } catch (error) {console.log(error)
-return
-}
+    } catch (error) {}
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     if (isNaN(asset)) {
         console.log("You can't input a string")
@@ -41,7 +39,6 @@ return
         if (type == '.rbxm' || type == '.mp3' || type == '.webm' || type == ".rbxl") {
             response = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`,{method:'GET',headers:{'User-Agent': 'Roblox/WinInet'}})
             response.body.pipe(fs.createWriteStream(`./assets/${asset}${type}`))
-            readline.close()
         } else if (type == '.rbxmx') {
             resp = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`).then(res => res.text())
             newId = resp.split(";")
@@ -55,8 +52,8 @@ return
             newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
             res = await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${newId}`)
             response.body.pipe(fs.createWriteStream(`./assets/${newId}${type}`))
-            readline.close()
         }
+        readline.close()
     }
 
 }
