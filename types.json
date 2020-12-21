@@ -1,0 +1,18 @@
+  {
+    "audio": ".mp3",
+    "shirt": ".png",
+    "pants": ".png",
+    "tshirt": ".png",
+    "face": ".png",
+    "decal": ".png",
+    "hat": ".rbxm",
+    "mesh": ".rbxm",
+    "plugin": ".rbxm",
+    "emote": ".rbxm",
+    "gear": ".rbxm",
+    "bodypart": ".rbxm",
+    "animation": ".rbxm",
+    "package": ".rbxmx",
+    "place": ".rbxl",
+    "video": ".webm"
+}

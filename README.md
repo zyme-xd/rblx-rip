@@ -23,7 +23,7 @@ An open-source roblox ripping tool.
 | 'plugin'  | Plugins in .rbxm format  |
 | 'emote'  | Emotes in .rbxm format  |
 |  'gear' | Gears in .rbxm format  |
-| 'body-part'  | Body parts in .rbxm format  |
+| 'bodypart'  | Body parts in .rbxm format  |
 |  'animation'  | Animations in .rbxm format  |
 | 'package'  |  Packages/AnimationPacks in .rbxmx format|
 | 'place'  | Places in .rbxl format.  |
