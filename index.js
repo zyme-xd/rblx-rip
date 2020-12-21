@@ -20,7 +20,9 @@ main()
 async function main() {
     try {
         fs.mkdirSync('./assets/', {})
-    } catch (error) {}
+    } catch (error) {console.log(error)
+return
+}
     let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     if (isNaN(asset)) {
         console.log("You can't input a string")
