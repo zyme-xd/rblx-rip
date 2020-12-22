@@ -28,4 +28,5 @@ An open-source roblox ripping tool.
 | 'package'  |  Packages/AnimationPacks in .rbxmx format|
 | 'place'  | Places in .rbxl format.  |
 |  'video' | Videos in .webm format  |
+| 'resources'| Textures/Meshes in .obj/.png format|
 

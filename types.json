@@ -14,5 +14,6 @@
     "animation": ".rbxm",
     "package": ".rbxmx",
     "place": ".rbxl",
-    "video": ".webm"
+    "video": ".webm",
+    "resources": ".z"
 }

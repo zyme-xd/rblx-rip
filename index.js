@@ -21,17 +21,17 @@ async function main() {
     if (!fs.existsSync("./assets/")) {
         try {
             fs.mkdirSync("./assets")
-        } catch(e) {
+        } catch (e) {
             console.error("Error!");
             throw e;
         }
     }
-    let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
+    let asset = 6042665602 //parseInt(await readline.questionAsync('Enter an asset ID:  '))
     if (isNaN(asset)) {
         console.log("You can't input a string")
         return main()
     }
-    let type =  await readline.questionAsync('Enter the asset type:  ')
+    let type = 'resources' //await readline.questionAsync('Enter the asset type:  ')
     console.log(`Ok, ripping the asset id ${asset}`)
     if (obj[type.toLowerCase()]) {
         type = obj[type.toLowerCase()]
@@ -42,7 +42,12 @@ async function main() {
     }
     async function rip() {
         if (type == '.rbxm' || type == '.mp3' || type == '.webm' || type == ".rbxl") {
-            response = await download(asset, {method:'GET',headers:{'User-Agent': 'Roblox/WinInet'}});
+            response = await download(asset, {
+                method: 'GET',
+                headers: {
+                    'User-Agent': 'Roblox/WinInet'
+                }
+            });
             response.body.pipe(fs.createWriteStream(`./assets/${asset}${type}`))
         } else if (type == '.rbxmx') {
             resp = await download(asset).then(res => res.text())
@@ -51,8 +56,15 @@ async function main() {
                 res = await download(newId[i])
                 response.body.pipe(fs.createWriteStream(`./assets/${newId[i]}${type}`))
             }
-        }
-         else {
+        } else if (type == '.z') {
+            response = await download(asset).then(res => res.text())
+            result1 = /MeshId.*?rbxassetid:\/\/([0-9]+)/.exec(response)
+            result2 = /TextureId.*?rbxassetid:\/\/([0-9]+)/.exec(response)
+            response2 = await download(result1[1])
+            response3 = await download(result2[1])
+            response2.body.pipe(fs.createWriteStream(`./assets/${result1[1]}.obj`))
+            response3.body.pipe(fs.createWriteStream(`./assets/${result2[1]}.png`))
+        } else {
             response = await download(asset).then(res => res.text())
             newId = response.split("<url>").join().split("</url>").join().split(",")[1].replace(/\D/g, '')
             res = await download(newId)
@@ -60,9 +72,9 @@ async function main() {
         }
         readline.close()
     }
-    
+
 }
 
 async function download(asset, headers) {
-    return await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`,headers ? headers : {})
+    return await fetch(`https://assetdelivery.roblox.com/v1/asset?id=${asset}`, headers ? headers : {})
 }
