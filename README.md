@@ -1,6 +1,6 @@
 # rblx-rip
 An open-source roblox ripping tool.
-#### Please note, you can only rip assets that are on sale/are uncopylocked.
+#### Please note, some assets need to be public to be ripped.
 **Bundle ID's are also NOT supported. If you are downloading a bundle, find the normal ID for the bundle.**
 # Installation
 1. First, make sure you have node.js installed.

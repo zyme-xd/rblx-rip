@@ -15,7 +15,7 @@ _ __ | |__ | |_  __  ______   _ __ _ _ __
 |_|  |_.__/|_/_//_/          |_|  |_| .__/
                                     | |    
                                     |_| `)
-console.log('Thanks for installing rblx-rip! Please keep in mind you cannot download off-sale assets.')
+console.log('Thanks for installing rblx-rip! Keep in mind some asset types may need to be onsale.')
 main()
 async function main() {
     if (!fs.existsSync("./assets/")) {
