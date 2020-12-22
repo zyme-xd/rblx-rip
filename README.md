@@ -26,7 +26,7 @@ An open-source roblox ripping tool.
 | 'bodypart'  | Body parts in .rbxm format  |
 |  'animation'  | Animations in .rbxm format  |
 | 'package'  |  Packages/AnimationPacks in .rbxmx format|
-| 'place'  | Places in .rbxl format.  |
+| 'place'  | Places in .rbxl format  |
 |  'video' | Videos in .webm format  |
 | 'resources'| Textures/Meshes in .obj/.png format|
 
