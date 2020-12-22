@@ -26,12 +26,12 @@ async function main() {
             throw e;
         }
     }
-    let asset = 4440589297 //parseInt(await readline.questionAsync('Enter an asset ID:  '))
+    let asset = parseInt(await readline.questionAsync('Enter an asset ID:  '))
     if (isNaN(asset)) {
         console.log("You can't input a string")
         return main()
     }
-    let type = 'pants' //await readline.questionAsync('Enter the asset type:  ')
+    let type = await readline.questionAsync('Enter the asset type:  ')
     console.log(`Ok, ripping the asset id ${asset}`)
     if (obj[type.toLowerCase()]) {
         type = obj[type.toLowerCase()]
