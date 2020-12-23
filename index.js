@@ -55,8 +55,20 @@ async function main() {
             for (i = 0; newId.length > i; i++) {
                 res = await download(newId[i])
                 response.body.pipe(fs.createWriteStream(`./assets/${newId[i]}${type}`))
-            }
-        } else if (type == '.z') {
+            }    
+        } else if (type == '.g') {
+            console.log("This is coming soon, this isn't done yet.")
+        }
+        else if (type == '.m'){
+            response = await download(asset).then(res => res.text())
+            result1 = response.split(/<Content name="TextureId"><url>http:\/\/www.roblox.com\/asset\/\?id=([0-9]+)/)
+            result2 = /<Content name="MeshId"><url>http:\/\/www.roblox.com\/asset\/\?id=([0-9]+)/.exec(response)
+            response2 = await download(result1[3])
+            response3 = await download(result2[1])
+            response2.body.pipe(fs.createWriteStream(`./assets/${result1[3]}.png`))
+            response3.body.pipe(fs.createWriteStream(`./assets/${result2[1]}.obj`))
+        } 
+        else if (type == '.z') {
             response = await download(asset).then(res => res.text())
             result1 = /MeshId.*?rbxassetid:\/\/([0-9]+)/.exec(response)
             result2 = /TextureId.*?rbxassetid:\/\/([0-9]+)/.exec(response)

@@ -10,10 +10,12 @@
     "plugin": ".rbxm",
     "emote": ".rbxm",
     "gear": ".rbxm",
-    "bodypart": ".rbxm",
+    "body-part": ".rbxm",
     "animation": ".rbxm",
     "package": ".rbxmx",
     "place": ".rbxl",
     "video": ".webm",
-    "resources": ".z"
+    "hat-resources": ".z",
+    "mesh-resources": ".g",
+    "gear-resources": ".m"
 }
