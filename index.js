@@ -16,6 +16,7 @@ _ __ | |__ | |_  __  ______   _ __ _ _ __
                                     | |    
                                     |_| `)
 console.log('Thanks for installing rblx-rip! Keep in mind some asset types may need to be onsale.')
+// i dont remember which types need it, lol
 main()
 async function main() {
     if (!fs.existsSync("./assets/")) {
@@ -56,7 +57,7 @@ async function main() {
                 res = await download(newId[i])
                 response.body.pipe(fs.createWriteStream(`./assets/${newId[i]}${type}`))
             }    
-        } else if (type == '.g') {
+        } else if (type == '.k') {
             console.log("This is coming soon, this isn't done yet.")
         }
         else if (type == '.m'){
