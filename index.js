@@ -72,6 +72,9 @@ async function main() {
             response = await download(asset).then(res => res.text())
             result1 = /MeshId.*?rbxassetid:\/\/([0-9]+)/.exec(response)
             result2 = /TextureId.*?rbxassetid:\/\/([0-9]+)/.exec(response)
+            if (result2 == null){
+                result2 = /http:\/\/www.roblox.com\/asset\/\?id=([0-9]+)/.exec(response)
+            }
             response2 = await download(result1[1])
             response3 = await download(result2[1])
             response2.body.pipe(fs.createWriteStream(`./assets/${result1[1]}.obj`))

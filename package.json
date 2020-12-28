@@ -24,6 +24,7 @@
   "homepage": "https://github.com/zyme-xd/rblx-shirtrip#readme",
   "dependencies": {
     "node-fetch": "^2.6.1",
+    "pkg": "^4.4.9",
     "readline-promise": "^1.0.5"
   },
   "devDependencies": {}
