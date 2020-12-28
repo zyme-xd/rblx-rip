@@ -5,7 +5,6 @@ An open-source roblox ripping tool.
 #### Please note, some assets need to be public to be ripped.
 **Bundle ID's are also NOT supported. If you are downloading a bundle, find the normal ID for the bundle.**
 # Usage
-#### You don't have to do this, you can download from the releases instead.
 1. First, make sure you have node.js installed.
 2. If you have it installed, continue.
 3. Enter cmd and enter this. `cd <directory-here>`
