@@ -6,7 +6,7 @@
     "face": ".png",
     "decal": ".png",
     "hat": ".rbxm",
-    "mesh": ".rbxm",
+    "mesh": ".obj",
     "plugin": ".rbxm",
     "emote": ".rbxm",
     "gear": ".rbxm",
