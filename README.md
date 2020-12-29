@@ -21,7 +21,7 @@ An open-source roblox ripping tool.
 | 'face'  | Face images in .png format  |
 |  'decal' | Decal images in .png format  |
 | 'hat'  | Hat models in .rbxm format  |
-|  'mesh' | Meshes in .rbxm format |
+|  'mesh' | Meshes in .obj format |
 | 'plugin'  | Plugins in .rbxm format  |
 | 'emote'  | Emotes in .rbxm format  |
 |  'gear' | Gears in .rbxm format  |
