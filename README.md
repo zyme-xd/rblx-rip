@@ -2,7 +2,7 @@
 ![rblx-rip](raccoon.ico)
 
 An open-source roblox ripping tool.
-#### THIS IS NO LONGER MAINTAINED!!! THE CODE FOR THIS IS SO SHIT SO IF IT BREAKS DON'T BE SHOCKED
+#### THIS IS NO LONGER MAINTAINED!!! THE CODE FOR THIS IS SO SHIT SO IF IT BREAKS DON'T BE SHOCKED!!!
 #### Please note, some assets need to be public to be ripped.
 **Bundle ID's are also NOT supported. If you are downloading a bundle, find the normal ID for the bundle.**
 # Usage
